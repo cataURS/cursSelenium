@@ -17,6 +17,8 @@ public class AssertElements  extends BaseTest{
 		WebElement field1 = driver.findElement(By.id("log"));
 		WebElement field2 = driver.findElement(By.id("log"));
 		
+		driver.findElement(By.className("menu_user_login")).isDisplayed();
+		
 		try {
 			Assert.assertFalse(field1.isDisplayed());
 			Assert.assertFalse(field2.isDisplayed());
