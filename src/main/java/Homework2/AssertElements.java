@@ -27,8 +27,8 @@ public class AssertElements  extends BaseTest{
 		}
 		driver.findElement(By.className("menu_user_login")).click();
 		//Thread.sleep(3000);
-		field1.isDisplayed();
-		field2.isDisplayed();
+		Assert.assertTrue(field1.isDisplayed());
+		Assert.assertTrue(field2.isDisplayed());
 		//Thread.sleep(3000);
 		
 		
