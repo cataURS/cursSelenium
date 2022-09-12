@@ -15,11 +15,14 @@ public class BaseTest {
 	@BeforeClass
 	public void setup() {
 		driver = WebDriverManager.chromedriver().create();
+		driver.manage().window().maximize();
 		driver.get("http://keybooks.ro");
 	}
 	
 	@AfterClass
-	public void teardown() {
+	public void teardown() throws InterruptedException {
+		
+		Thread.sleep(4000);
 		driver.quit();		
 
 	}
