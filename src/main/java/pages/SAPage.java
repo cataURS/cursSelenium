@@ -11,16 +11,18 @@ public WebDriver driver;
 		this.driver = driver;
 		
 	}
+
+	public By Drama = By.cssSelector("div[data-stop='95']");
+	public By Biography = By.cssSelector("div[data-stop='75']");
+	public By Cookbooks = By.cssSelector("div[data-stop='82']");
 	
-	//locatori
-	//driver.findElement(By.linkText("BOOKS"));
-	public By Drama = By.cssSelector("input[class='search_field']");
-	public By Biography = By.cssSelector("input[class='search_field']");
-	public By Cookbooks = By.cssSelector("input[class='search_field']");
+	//am incercat initial cu nth of type dar nu vrea sinu inteleg de ce, nth-of-type(1)le gasea pe toate, wtf
+	//"div[class='sc_skills_total']:nth-of-type(2)"
+	//"div[class='sc_skills_total']:nth-of-type(3)"
 	
-	public void gettext(By locator) {
+	public String gettext(By locator) {
 		
-		driver.findElement(locator).getText();
+		return driver.findElement(locator).getText();
 	}
 	
 }
