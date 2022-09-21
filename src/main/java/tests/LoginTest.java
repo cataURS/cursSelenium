@@ -14,12 +14,29 @@ public class LoginTest extends BaseTest {
 	public void loginTest() {
 		
 		NavMenuPage navMenu = new NavMenuPage(driver);
+
 		navMenu.navigateTo(navMenu.loginLink);
-		LoginPage logpage = new LoginPage(driver);
-		logpage.loginapp("TestUser", "12345@67890");
-		assertTrue(logpage.loginSuccessMessage());
-		logpage.logout();
 		
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.loginInApp("TestUser", "12345@67890");
+		//var1
+		assertTrue(loginPage.loginSucessMessageIsDisplayed());
+		//var 2
+		assertTrue(loginPage.loginMessageIsDisplayed(loginPage.loginSuccessMessage));
+		loginPage.logoutFromApp();
+		
+	}
+	
+	@Test(priority =1)
+	public void invalidLoginTest() {
+		
+		NavMenuPage navMenu = new NavMenuPage(driver);
+		navMenu.navigateTo(navMenu.loginLink);
+		
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.loginInApp("TestCeva", "12345@67890");
+		assertTrue(loginPage.loginErrorMessageIsDisplayed());
+
 	}
 
 }
