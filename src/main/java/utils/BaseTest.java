@@ -18,6 +18,7 @@ public class BaseTest {
 	public void setup() {
 		driver = WebDriverManager.chromedriver().create();
 		driver.manage().window().maximize();
+		//edit for master
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("http://keybooks.ro");
