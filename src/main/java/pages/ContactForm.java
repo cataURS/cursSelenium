@@ -9,7 +9,7 @@ public class ContactForm {
 	
 public WebDriver driver;
 	
-	public ContactForm() {
+	public ContactForm(WebDriver driver) {
 		this.driver = driver;
 		
 	}
