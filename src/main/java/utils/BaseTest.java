@@ -31,7 +31,8 @@ public class BaseTest {
 	public void teardown() throws InterruptedException {
 		
 		Thread.sleep(4000);
-		driver.quit();		
+		driver.quit();	
+		//new commentt curs 11 conflict
 
 	}
 }
