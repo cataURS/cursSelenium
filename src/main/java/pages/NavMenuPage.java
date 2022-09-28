@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class NavMenuPage {
-
+	
 	public WebDriver driver;
 	
 	public NavMenuPage(WebDriver driver) {
@@ -18,6 +18,8 @@ public class NavMenuPage {
 	public By loginLink = By.linkText("Login");
 	public By contactLink = By.linkText("CONTACTS");
 	public By singleAuthor = By.linkText("SINGLE AUTHOR");
+	public By blog = By.linkText("BLOG");
+	public By blogClassic = By.linkText("Classic");
 	
 	
 	public void navigateTo(By locator) {

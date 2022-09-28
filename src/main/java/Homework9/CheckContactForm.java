@@ -1,55 +1,50 @@
 package Homework9;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
-import org.junit.Test;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import pages.ContactForm;
 import pages.NavMenuPage;
 import utils.BaseTest;
 
 public class CheckContactForm extends BaseTest{
-		
-	@BeforeTest	
-	public void navigate() {
-		NavMenuPage navMenu = new NavMenuPage(driver);
-		navMenu.navigateTo(navMenu.contactLink);
-	}	
 
-	@Test
-	public void sendAllFields() {
+	@Test(priority =4)
+	public void sendAllFields() throws InterruptedException{
 		ContactForm cont = new ContactForm(driver);
+		driver.navigate().refresh();
 		cont.sendForm("cata","test@mail.com","something","mess");
-		assertEquals(cont.validate(), true);
+		Thread.sleep(1000);
+		assertTrue(cont.validate(cont.Response));
+
 	}
 	
-	@Test
+	@Test(priority =1)
 	public void invalidName() {
 		ContactForm cont = new ContactForm(driver);
+		NavMenuPage nav = new NavMenuPage(driver);
+		nav.navigateTo(nav.contactLink);
 		cont.sendForm("","test@mail.com","something","mess");
-		assertEquals(cont.validate(), false);
+		assertTrue(cont.validate(cont.TipError));
 	}
 	
-	@Test
+	@Test(priority =2)
 	public void invalidEmail() {
 		ContactForm cont = new ContactForm(driver);
+		driver.navigate().refresh();
 		cont.sendForm("cata","","something","mess");
-		assertEquals(cont.validate(), false);
+		assertTrue(cont.validate(cont.TipError));
 	}
 	
-	@Test
-	public void invalidSubject() {
-		ContactForm cont = new ContactForm(driver);
-		cont.sendForm("cata","test@mail.com","","mess");
-		assertEquals(cont.validate(), false);
-	}
 	
-	@Test
+	@Test(priority =3)
 	public void invalidMessage() {
+		driver.navigate().refresh();
 		ContactForm cont = new ContactForm(driver);
 		cont.sendForm("cata","test@mail.com","something","");
-		assertEquals(cont.validate(), false);
+		assertTrue(cont.validate(cont.TipError));
 	}
 	
 	
