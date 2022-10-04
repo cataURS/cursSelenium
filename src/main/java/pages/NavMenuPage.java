@@ -27,5 +27,16 @@ public class NavMenuPage {
 		driver.findElement(locator).click();
 	}
 	
+//  NavMenuPage navMenu =  new NavMenuPage(driver);
+//    navMenu.navigateTo(navMenu.shopLink);
+//    ShopPage shopPage = new ShopPage(driver);	
+
+
+	public ShopPage navigateToShop() {
+		driver.findElement(shopLink).click();
+		return new ShopPage(driver);
+	}
+
+	
 	
 }

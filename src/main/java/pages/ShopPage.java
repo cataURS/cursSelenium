@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class Shop {
+public class ShopPage {
 	
 public WebDriver driver;
 public WebElement dropdown;
 public Select select;
 
-	public Shop(WebDriver driver) {
+	public ShopPage(WebDriver driver) {
 		this.driver = driver;
 		
 	}
@@ -26,31 +26,33 @@ public Select select;
 	public By addCart = By.xpath("//button[@type='submit' and @name='add-to-cart']");
 	public By tags = By.xpath("//div[@class='product_meta']");
 	//curs12
-	public By orderDropdown = By.xpath("//select[@name='orderby']");
+	public By orderDropdown =  By.name("orderby");
+	
 	
 	public void selectByValue(String value) {
-		dropdown = driver.findElement(orderDropdown);
-		select = new Select(dropdown);
+		dropdown =  driver.findElement(orderDropdown);
+		select =  new Select(dropdown);
 		select.selectByValue(value);
 	}
 	
 	public void selectByIndex(int index) {
-		dropdown = driver.findElement(orderDropdown);
-		Select select = new Select(dropdown);
+		dropdown =  driver.findElement(orderDropdown);
+		select =  new Select(dropdown);
 		select.selectByIndex(index);
 	}
 	
 	public void selectByVisibleText(String text) {
-		dropdown = driver.findElement(orderDropdown);
-		Select select = new Select(dropdown);
+		dropdown =  driver.findElement(orderDropdown);
+		select =  new Select(dropdown);
 		select.selectByVisibleText(text);
 	}
 	
 	public String getSelectedOption() {
-		dropdown = driver.findElement(orderDropdown);
-		Select select = new Select(dropdown);
+		dropdown =  driver.findElement(orderDropdown);
+		select =  new Select(dropdown);
 		return select.getFirstSelectedOption().getText();
 	}
+
 	
 	
 	public boolean validate(By locator) {

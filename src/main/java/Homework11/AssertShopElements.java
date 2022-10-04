@@ -5,7 +5,7 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
 import pages.NavMenuPage;
-import pages.Shop;
+import pages.ShopPage;
 import utils.BaseTest;
 
 public class AssertShopElements extends BaseTest{
@@ -13,7 +13,7 @@ public class AssertShopElements extends BaseTest{
 	@Test
 	public void assertElem(){
 		
-	Shop shp = new Shop(driver);
+	ShopPage shp = new ShopPage(driver);
 	NavMenuPage navi = new NavMenuPage(driver);
 	navi.navigateTo(navi.shopLink);
 	navi.navigateTo(shp.anyBook);
