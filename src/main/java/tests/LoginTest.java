@@ -2,6 +2,7 @@ package tests;
 
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
@@ -9,6 +10,11 @@ import pages.NavMenuPage;
 import utils.BaseTest;
 
 public class LoginTest extends BaseTest {
+	
+	public LoginTest(WebDriver driver) {
+		this.driver = driver;
+		
+	}
 	
 	@Test
 	public void loginTest() {
@@ -23,7 +29,7 @@ public class LoginTest extends BaseTest {
 		assertTrue(loginPage.loginSucessMessageIsDisplayed());
 		//var 2
 		assertTrue(loginPage.loginMessageIsDisplayed(loginPage.loginSuccessMessage));
-		loginPage.logoutFromApp();
+		//loginPage.logoutFromApp();
 		
 	}
 	
