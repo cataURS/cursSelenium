@@ -14,6 +14,7 @@ public class BeforeAfterExample {
 	public void beforeSuite() {
 		System.out.println("Before suite");
 	}
+	
 	@BeforeClass(alwaysRun = true)
 	public void beforeClass() {
 		System.out.println("Before class");

@@ -7,25 +7,15 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ShopPage {
 	
-public WebDriver driver;
-public WebElement dropdown;
-public Select select;
-
+	
+	public WebDriver driver;
+	public WebElement dropdown;
+	public Select select;
+	
 	public ShopPage(WebDriver driver) {
-		this.driver = driver;
-		
-	}
-
-	public By anyBook = By.xpath("//a[contains(text(), 'Cooking with love')]");
-	public By h1title = By.xpath("//h1[@class='product_title entry-title']");
-	public By stars = By.xpath("//div[@class='star-rating']");
-	public By zoom = By.xpath("//a[contains(@class, 'gallery__trigger')]");
-	public By price = By.xpath("//p[@class='price']");
-	public By description = By.xpath("//div[contains(@class, 'short-description')]");
-	public By amount = By.xpath("//div[@class='quantity']");
-	public By addCart = By.xpath("//button[@type='submit' and @name='add-to-cart']");
-	public By tags = By.xpath("//div[@class='product_meta']");
-	//curs12
+		this.driver = driver; }
+	
+	
 	public By orderDropdown =  By.name("orderby");
 	
 	
@@ -53,7 +43,6 @@ public Select select;
 		return select.getFirstSelectedOption().getText();
 	}
 
-	
 	
 	public boolean validate(By locator) {
 		   return  driver.findElement(locator).isDisplayed();

@@ -2,7 +2,8 @@
 <suite name="Suite1" >
     <test name="123" >
         <packages>
-            <package name="tests.LoginTest" ></package>
+            <package name="tests" />
         </packages>
     </test>
+
 </suite>

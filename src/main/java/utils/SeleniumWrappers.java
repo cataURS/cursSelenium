@@ -1,7 +1,15 @@
 package utils;
 
-import org.openqa.selenium.WebElement;
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumWrappers {
 	
@@ -11,15 +19,50 @@ public class SeleniumWrappers {
 		this.driver = driver;
 	}
 	
-	public void sendKeys(WebElement element, String value) {
-		
+	/**
+	 * Custom sendKeys method/ Wraps selenium default SendKeys and enhace it
+	 * with clear() method before sending the text.
+	 * @param locator --> used inside method to create an WebElement object
+	 * @param value --> String value
+	 */
+	public void sendKeys(By locator, String value) {
+		WebElement element =  driver.findElement(locator);
 		try {
+			
 			element.clear();
 			element.sendKeys(value);
 			
-		}catch (Exception e) {
-			System.out.println("smth went wrong");
+		}catch(Exception e) {
+			
+			System.out.println("Something went wrong!");
 		}
+		
 	}
+	
+	public void click(By locator) {
+		WebElement element =  driver.findElement(locator);
+
+		try {
+			waitForElementToBeClickable(element);
+			element.click();
+			
+		}catch(NoSuchElementException e) {
+			
+			System.out.println("Something went wrong!");
+		}catch (StaleElementReferenceException e) {
+			
+			WebElement element2 =  driver.findElement(locator);
+			element2.click();
+		}
+		
+	}
+	
+	public void waitForElementToBeClickable(WebElement element) {
+		
+		WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	
 
 }

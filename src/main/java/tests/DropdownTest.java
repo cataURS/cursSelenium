@@ -22,7 +22,7 @@ public class DropdownTest extends BaseTest {
 		assertEquals(shopPage.getSelectedOption(), "Sort by price: low to high");
 	}
 	
-	//@Test(priority = 2)
+	@Test(priority = 2, groups = "ProductFunctionality")
 	public void selectByVisibleTextTest() {
 		NavMenuPage navMenu =  new NavMenuPage(driver);
 		navMenu.navigateTo(navMenu.shopLink);
@@ -32,7 +32,7 @@ public class DropdownTest extends BaseTest {
 		
 	}
 	
-	//@Test(priority = 3)
+	@Test(priority = 3, groups = "ProductFunctionality")
 	public void selectByIndex() {
 	    NavMenuPage navMenu =  new NavMenuPage(driver);
 		navMenu.navigateTo(navMenu.shopLink);
@@ -42,7 +42,7 @@ public class DropdownTest extends BaseTest {
 	
 	}
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void exceptionExample() {
 	    NavMenuPage navMenu =  new NavMenuPage(driver);
 		navMenu.navigateTo(navMenu.shopLink);
@@ -51,8 +51,8 @@ public class DropdownTest extends BaseTest {
 		Select select = new Select(dropdown);
 		select.selectByVisibleText("Sort by popularity");
 		//refresh
-		//WebElement dropdown2 =  driver.findElement(By.name("orderby"));
-		//Select select2 = new Select(dropdown2);
+		WebElement dropdown2 =  driver.findElement(By.name("orderby"));
+		Select select2 = new Select(dropdown2);
 		select.selectByVisibleText("Sort by latest");
 
 		

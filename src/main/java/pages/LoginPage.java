@@ -1,14 +1,22 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
+import utils.SeleniumWrappers;
+
+public class LoginPage extends SeleniumWrappers {
 	
-	public WebDriver driver;
+	//public WebDriver driver;
 	
 	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+		//this.driver = driver;
+		super(driver);
 
 	}
 	
@@ -28,18 +36,30 @@ public class LoginPage {
 	
 	public By logoutButton = By.cssSelector("li[class='menu_user_logout']");
 	
+	public By closePopUpButton =  By.cssSelector("a[class='popup_close']");
+	
+	
+	public void closeLoginPopUp() {
+		driver.findElement(closePopUpButton).click();
+	}
+	
 	
 	public void loginInApp(String username, String password) {
-		
-		driver.findElement(usernameField).sendKeys(username);
-		driver.findElement(passwordField).sendKeys(password);
-		driver.findElement(submitButton).click();
+	//	driver.findElement(usernameField).clear();
+	//	driver.findElement(usernameField).sendKeys(username);
+	//driver.findElement(passwordField).clear();
+	//driver.findElement(passwordField).sendKeys(password);
+   //driver.findElement(submitButton).click();	
+		sendKeys(usernameField, username);
+		sendKeys(passwordField, password);
+		click(submitButton);
+
+
 		
 	}
 	
-	public void logoutFromApp() {
-		
-		driver.findElement(logoutButton).click();
+	public void logoutFromApp() {		
+		click(logoutButton);
 	}
 	
 	
