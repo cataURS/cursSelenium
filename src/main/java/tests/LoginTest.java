@@ -11,10 +11,6 @@ import utils.BaseTest;
 
 public class LoginTest extends BaseTest {
 	
-	public LoginTest(WebDriver driver) {
-		this.driver = driver;
-		
-	}
 	
 	@Test
 	public void loginTest() {
