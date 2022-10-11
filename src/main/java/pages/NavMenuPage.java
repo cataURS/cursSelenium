@@ -15,10 +15,10 @@ public class NavMenuPage {
 	
 	//locatori
 	//driver.findElement(By.linkText("BOOKS"));
+	public By homeLink = By.linkText("HOME");
 	public By shopLink = By.linkText("BOOKS");
 	public By loginLink = By.linkText("Login");
 	public By contactLink = By.linkText("CONTACTS");
-	
 	
 	public void navigateTo(By locator) {
 		driver.findElement(locator).click();

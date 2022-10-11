@@ -14,7 +14,7 @@ import pages.ShopPage;
 
 public class DropdownTest extends BaseTest {
 	
-	//@Test(priority =1)
+	@Test(priority =1)
 	public void selectByValueTest() {
 		
 		ShopPage shopPage = navMenu.navigateToShop();

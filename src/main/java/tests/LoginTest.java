@@ -25,11 +25,11 @@ public class LoginTest extends BaseTest {
 		assertTrue(loginPage.loginSucessMessageIsDisplayed());
 		//var 2
 		assertTrue(loginPage.loginMessageIsDisplayed(loginPage.loginSuccessMessage));
-		loginPage.logoutFromApp();
+		//loginPage.logoutFromApp();
 		
 	}
 	@Parameters({"invalidUser", "invalidPass"})
-	@Test(priority =2, groups = "LoginFunctionality")
+	@Test(priority =2 /*groups = "LoginFunctionality"*/)
 	public void invalidLoginTest(String user, String pass) {
 		
 		NavMenuPage navMenu = new NavMenuPage(driver);

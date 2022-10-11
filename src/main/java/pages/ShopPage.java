@@ -1,5 +1,7 @@
 package pages;
 
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +19,8 @@ public class ShopPage {
 	
 	
 	public By orderDropdown =  By.name("orderby");
+	public By firstBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi>span");
+	public By lastBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi>span");
 	
 	
 	public void selectByValue(String value) {
@@ -47,4 +51,10 @@ public class ShopPage {
 	public boolean validate(By locator) {
 		   return  driver.findElement(locator).isDisplayed();
 		}
+	
+	public void validateMin() {
+		int first = Integer.valueOf(driver.findElement(firstBook).getText());
+		int last = Integer.valueOf(driver.findElement(lastBook).getText());
+		assertTrue(first<last);
+	}
 }
