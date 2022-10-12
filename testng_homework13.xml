@@ -9,11 +9,6 @@
 	          			<include name = "loginTest" />
 	          		</methods>
 	          	</class>
-            <class name="tests.DropdownTest" >
-            		<methods>
-	          			<include name = "selectByValueTest" />
-	          		</methods>
-	          	</class>
 	        <class name="tests.comparePrices" ></class> <!-- aici am nevoie sa fac un depends on dar nu stiu cum, sau daca e mai bine la nivel de test, desi am incercat ceva si pe acolo-->
         </classes>
     </test>

@@ -19,8 +19,8 @@ public class ShopPage {
 	
 	
 	public By orderDropdown =  By.name("orderby");
-	public By firstBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi>span");
-	public By lastBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi>span");
+	public By firstBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi");
+	public By lastBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi");
 	
 	
 	public void selectByValue(String value) {
@@ -53,8 +53,8 @@ public class ShopPage {
 		}
 	
 	public void validateMin() {
-		int first = Integer.valueOf(driver.findElement(firstBook).getText());
-		int last = Integer.valueOf(driver.findElement(lastBook).getText());
+		double first = Double.valueOf(driver.findElement(firstBook).getText());
+		double last = Double.valueOf(driver.findElement(lastBook).getText());
 		assertTrue(first<last);
 	}
 }

@@ -8,11 +8,12 @@ import utils.BaseTest;
 
 public class comparePrices extends BaseTest {
 	
-	@Test(dependsOnMethods = { "DropdownTest.selectByValueTest" })
+	@Test
 	public void compare() {
-		LoginPage log = new LoginPage(driver);
-		log.loginInApp(null, null);
+		ShopPage shopPage = navMenu.navigateToShop();
+		shopPage.selectByValue("price");
 		ShopPage shop = new ShopPage(driver);
+		System.out.println(shop.firstBook);
 		shop.validateMin();
 	}
 	
