@@ -1,26 +1,28 @@
 package pages;
 
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class ShopPage {
+import utils.SeleniumWrappers;
+
+public class ShopPage extends SeleniumWrappers {
 	
 	
-	public WebDriver driver;
+//	public WebDriver driver;
 	public WebElement dropdown;
 	public Select select;
 	
 	public ShopPage(WebDriver driver) {
-		this.driver = driver; }
+		//this.driver = driver; 
+	super(driver);	
+	}
 	
 	
 	public By orderDropdown =  By.name("orderby");
-	public By firstBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi");
-	public By lastBook = By.cssSelector("ul>li[class*='product']:nth-of-type(1) div span bdi");
+	public By sliderInitialPosition = By.cssSelector("span[style='left: 0%;']");
+	public By sliderFinalPosition = By.cssSelector("span[style='left: 100%;']");
 	
 	
 	public void selectByValue(String value) {
@@ -47,14 +49,4 @@ public class ShopPage {
 		return select.getFirstSelectedOption().getText();
 	}
 
-	
-	public boolean validate(By locator) {
-		   return  driver.findElement(locator).isDisplayed();
-		}
-	
-	public void validateMin() {
-		double first = Double.valueOf(driver.findElement(firstBook).getText());
-		double last = Double.valueOf(driver.findElement(lastBook).getText());
-		assertTrue(first<last);
-	}
 }
