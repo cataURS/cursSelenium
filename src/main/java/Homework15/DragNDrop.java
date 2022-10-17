@@ -11,7 +11,8 @@ public class DragNDrop extends BaseTest{
 	nav.navigateTo(nav.blog);
 	nav.navigateTo(nav.postFormats);
 	PostFormats post = new PostFormats(driver);
-	click(post.play);
+	post.click(post.play);
+	
 
 	}
 }

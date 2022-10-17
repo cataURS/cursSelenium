@@ -3,12 +3,14 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class PostFormats {
+import utils.SeleniumWrappers;
+
+public class PostFormats extends SeleniumWrappers{
 	
 public WebDriver driver;
 	
 	public PostFormats(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 		
 	}
 
