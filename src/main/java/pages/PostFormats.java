@@ -15,8 +15,7 @@ public WebDriver driver;
 	}
 
 	public By play = By.cssSelector("button[title='Play']");
-	public By progressInitial = By.cssSelector("span[style='left: 0%;']");
-	public By progressFinal = By.cssSelector("span[style='left: 100%;']");
-	
+	public By progressInitial = By.cssSelector("span[class*='time-handle'][style*='transform']");
+	public By volumeFinal = By.cssSelector("div[class*='volume-handle'][style*='left']");
 
 	}

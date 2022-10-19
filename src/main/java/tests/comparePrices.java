@@ -13,8 +13,8 @@ public class comparePrices extends BaseTest {
 		ShopPage shopPage = navMenu.navigateToShop();
 		shopPage.selectByValue("price");
 		ShopPage shop = new ShopPage(driver);
-		System.out.println(shop.firstBook);
-		shop.validateMin();
+		//System.out.println(shop.firstBook);
+		//shop.validateMin();
 	}
 	
 }
