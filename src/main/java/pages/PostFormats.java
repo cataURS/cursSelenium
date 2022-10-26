@@ -14,8 +14,8 @@ public WebDriver driver;
 		
 	}
 
-	public By play = By.cssSelector("button[title='Play']");
-	public By progressInitial = By.cssSelector("span[class*='time-handle'][style*='transform']");
-	public By volumeFinal = By.cssSelector("div[class*='volume-handle'][style*='left']");
+	public By play = By.cssSelector("div[class*='mejs-play']");
+	public By progressInitial = By.cssSelector("span[class*='mejs-time-hovered']");
+	public By volumeFinal = By.cssSelector("a[aria-label='Volume Slider']");
 
 	}
