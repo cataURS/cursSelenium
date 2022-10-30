@@ -80,6 +80,24 @@ public class SeleniumWrappers {
 		
 		
 	}
+
+
+	
+	public void hoverElement(By locator) {	
+		WebElement element = driver.findElement(locator);
+		Actions action = new Actions(driver);
+		action.moveToElement(element).perform();	
+	}
+	
+	public String readUrl() {
+	
+	
+		return driver.getCurrentUrl();
+	}
+	
+	public WebElement find(By locator) {
+		return driver.findElement(locator);
+	}
 	
 
 }
